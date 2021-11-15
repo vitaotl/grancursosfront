@@ -7,6 +7,10 @@ export const Container = styled.section`
   width: 28%;
   min-width: 260px;
   height: 1574px;
+
+  @media(max-width: 1150px) {
+    display: none;
+  }
 `;
 
 export const Text18 = styled.span`

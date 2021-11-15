@@ -5,6 +5,10 @@ export const Container = styled.div`
   width: 100%;
   /* height: 50px; */
   margin-left: 30px;
+
+  @media (max-width: 1150px) {
+    margin-left: 0;
+  }
 `;
 
 export const Text18 = styled.span`
@@ -42,11 +46,24 @@ export const Text12 = styled.span`
 `;
 
 export const HeaderCards = styled.section`
+  /* border: 1px solid red; */
   height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: -19px;
+  /* display: none; */
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    height: 80px;
+  }
+
+  @media (max-width: 500px) {
+    > span {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const HeaderCardsIcons = styled.section`
@@ -80,6 +97,13 @@ export const HeaderCardsGrid = styled.section`
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 3px 5px #bbbbbb;
+  background-color: ${(props) => (props.viewStyle ? "#0067FF" : "#FFF")};
+
+  > img {
+    filter: ${(props) =>
+      props.viewStyle &&
+      "invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg)brightness(112%) contrast(101%)"};
+  }
 
   &:hover {
     cursor: pointer;
@@ -110,6 +134,10 @@ export const SearchCards = styled.input`
   font-family: Montserrat;
   font-size: 22px;
   line-height: 26px;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 export const CardsContainer = styled.div`
@@ -131,39 +159,123 @@ export const Card = styled.div`
   border-radius: 8px;
   box-shadow: 0px 3px 5px #bbbbbb;
 
-  img {
-    margin: 20px 23px 20px 10px;
+  > div {
+    > img {
+      margin: 20px 23px 20px 10px;
+      width: 200px;
+      height: 200px;
+    }
   }
 
   &:hover {
     cursor: pointer;
     transform: scale(1);
   }
+
+  @media (max-width: 970px) {
+    > div {
+      > img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  @media (max-width: 570px) {
+    > div {
+      > img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+`;
+
+export const CardInfo = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  height: 80%;
+  /* border: 1px solid red; */
+
+  @media (max-width: 470px) {
+    flex-direction: column;
+    height: 100%;
+  }
+`;
+
+export const CardName = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: fit-content;
+  margin-top: 19px;
+
+  span {
+    margin-top: 7px;
+  }
+
+  @media (max-width: 850px) {
+    span {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    width: 60%;
+  }
+
+  @media (max-width: 680px) {
+    width: 50%;
+    span {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 512px) {
+    width: 40%;
+    span {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 470px) {
+    width: 100%;
+    margin-top: 0;
+    span {
+      font-size: 12px;
+    }
+  }
 `;
 
 export const CardDescription = styled.div`
-  /* border: 1px solid; */
   display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 150px;
+  width: 70%;
+  margin-top: -30px;
 
-  span:nth-child(2) {
-    margin-top: 7px;
-  }
-  span:nth-child(3) {
-    /* border: 1px solid; */
-    margin-top: 22px;
+  span {
     color: #2c2c2c;
+  }
+
+  @media (max-width: 830px) {
+    span {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    display: none;
+  }
+  @media (max-width: 720px) {
+    width: 60%;
   }
 `;
 
 export const CardPrice = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 90%;
+  height: 72px;
   margin-top: 19px;
 
   div:nth-child(1) {
@@ -172,7 +284,6 @@ export const CardPrice = styled.div`
     justify-content: flex-end;
     align-items: center;
     color: #fff;
-
     > span {
       display: ${(props) => (props.stars ? "flex" : "none")};
       justify-content: center;
@@ -188,6 +299,15 @@ export const CardPrice = styled.div`
 
       img {
         margin: 0 0 0 10px;
+      }
+    }
+
+    @media (max-width: 470px) {
+      margin-bottom: 0;
+      > span {
+        > span {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -207,14 +327,39 @@ export const CardPrice = styled.div`
         margin: 0 5px 0 0;
       }
     }
+
+    @media (max-width: 470px) {
+      flex-grow: 0;
+    }
   }
+
+  @media (max-width: 780px) {
+    > div:nth-child(2) {
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 470px) {
+    margin-top: 0;
+  }
+`;
+
+export const Buttons = styled.div`
+  /* border: 1px solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 `;
 
 export const WishListButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-top: 18px;
   border-radius: 8px;
@@ -227,7 +372,11 @@ export const WishListButton = styled.div`
 
   &:hover {
     cursor: pointer;
-    background-color:  #FF323A;
+    background-color: #ff323a;
+  }
+  @media (max-width: 470px) {
+    height: 30px;
+    /* margin-top: 5px; */
   }
 `;
 
@@ -235,7 +384,7 @@ export const AddToCartButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-top: 11px;
   border-radius: 8px;
@@ -250,5 +399,9 @@ export const AddToCartButton = styled.div`
   &:hover {
     cursor: pointer;
     background-color: #1963d1;
+  }
+  @media (max-width: 470px) {
+    height: 30px;
+    /* margin-top: 5px; */
   }
 `;

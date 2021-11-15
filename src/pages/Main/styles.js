@@ -8,8 +8,15 @@ export const Container = styled.div`
 `;
 
 export const MainBody = styled.div`
+  display: flex;
+
+  flex-direction: column;
   width: 100%;
   margin: 25px 25px;
+
+  @media (max-width: 500px) {
+    margin-left: 10px;
+  }
 `;
 
 export const MainContainer = styled.div`

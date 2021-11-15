@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Path from "../../assets/icons/Path.svg";
 import Grid from "../../assets/icons/Grid.svg";
@@ -28,9 +28,13 @@ import {
   CardPrice,
   WishListButton,
   AddToCartButton,
+  CardName,
+  CardInfo,
+  Buttons,
 } from "./styles";
 
 function Cards() {
+  const [viewStyle, setViewStyle] = useState("List");
   const cards = [
     {
       name: "Apple Watch Series 4 GPS",
@@ -71,10 +75,16 @@ function Cards() {
             <Text14>Default</Text14>
             <img alt="img" width="10px" height="5px" src={Path} />
           </HeaderCardsDefault>
-          <HeaderCardsGrid>
+          <HeaderCardsGrid
+            onClick={() => setViewStyle("Grid")}
+            viewStyle={viewStyle === "Grid" ? true : false}
+          >
             <img alt="img" width="16px" height="16px" src={Grid} />
           </HeaderCardsGrid>
-          <HeaderCardsGrid>
+          <HeaderCardsGrid
+            onClick={() => setViewStyle("List")}
+            viewStyle={viewStyle === "List" ? true : false}
+          >
             <img alt="img" width="16px" height="16px" src={List} />
           </HeaderCardsGrid>
         </HeaderCardsIcons>
@@ -88,38 +98,57 @@ function Cards() {
           return (
             <Card key={card.name}>
               <div>
-                <img alt="img" width="200px" height="200px" src={DefaultImage} />
+                <img
+                  alt="img"
+                  src={DefaultImage}
+                />
               </div>
-              <CardDescription>
-                <Text16>{card.name}</Text16>
-                <Text12>
-                  By <strong>{card.brand}</strong>
-                </Text12>
-                <Text14>{lorem}</Text14>
-              </CardDescription>
-              <CardPrice stars={card.stars ? true : false}>
-                <div>
-                  <span>
-                    <Text14>{card.stars}</Text14>
-                    <img alt="img" width="17.98px" height="18px" src={Star} />
-                  </span>
-                </div>
-                <div>
-                  <Text18>${card.price}</Text18>
+              <CardInfo>
+                <CardName>
+                  <Text16>{card.name}</Text16>
+                  <Text12>
+                    By <strong>{card.brand}</strong>
+                  </Text12>
+                </CardName>
+                <CardPrice stars={card.stars ? true : false}>
                   <div>
-                    <img alt="img" width="14px" height="14px" src={ShoppingCart} />
-                    <Text14>Free Shipping</Text14>
+                    <span>
+                      <Text14>{card.stars}</Text14>
+                      <img alt="img" width="17.98px" height="18px" src={Star} />
+                    </span>
                   </div>
+                  <div>
+                    <Text18>${card.price}</Text18>
+                    <div>
+                      <img
+                        alt="img"
+                        width="14px"
+                        height="14px"
+                        src={ShoppingCart}
+                      />
+                      <Text14>Free Shipping</Text14>
+                    </div>
+                  </div>
+                </CardPrice>
+                <CardDescription>
+                  <Text14>{lorem}</Text14>
+                </CardDescription>
+                <Buttons>
                   <WishListButton>
                     <img alt="img" width="14px" height="13px" src={Heart} />
                     <Text14> WHISHLIST</Text14>
                   </WishListButton>
                   <AddToCartButton>
-                    <img alt="img" width="16px" height="14px" src={ShoppingBag} />
+                    <img
+                      alt="img"
+                      width="16px"
+                      height="14px"
+                      src={ShoppingBag}
+                    />
                     <Text14>ADD TO CART</Text14>
                   </AddToCartButton>
-                </div>
-              </CardPrice>
+                </Buttons>
+              </CardInfo>
             </Card>
           );
         })}

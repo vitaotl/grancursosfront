@@ -34,7 +34,7 @@ export const Container = styled.aside`
     height: 194.48px;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1300px) {
     display: none;
   } 
 

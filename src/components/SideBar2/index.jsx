@@ -21,8 +21,8 @@ import FileText from "../../assets/icons/FileText.svg";
 import CheckCircle from "../../assets/icons/CheckCircle.svg";
 import Copy from "../../assets/icons/Copy.svg";
 import RightArrow from "../../assets/icons/RightArrow.svg";
-import BurguerMenu from "../../assets/icons/BurguerMenu.svg";
 import G from "../../assets/icons/G.svg";
+import Divider from "../../assets/icons/Divider.svg";
 
 import { Apps, Container, FirstSection, ImageContainer, Text } from "./styles";
 
@@ -62,9 +62,7 @@ function SideBar() {
           style={{ marginRight: 15 }}
         />
         {openMenu ? (
-          <div onClick={() => setOpenMenu(!openMenu)}>
-          'X'
-          </div>
+          <div onClick={() => setOpenMenu(!openMenu)}>'X'</div>
         ) : (
           <img
             onClick={() => setOpenMenu(!openMenu)}
@@ -75,13 +73,19 @@ function SideBar() {
           />
         )}
       </ImageContainer>
-      <FirstSection openMenu={openMenu}>
+      <FirstSection
+        openMenu={openMenu}
+        style={
+          openMenu ? { width: "90%" } : { marginLeft: "25px", width: "60%" }
+        }
+      >
         <span openMenu={openMenu}>
           <div>
             <img alt="img" width="14px" height="15.56px" src={Home} />
             <Text>Dashboard</Text>
           </div>
           <img
+            style={openMenu ? { display: "inline" } : { display: "none" }}
             alt="img"
             className="pathImage"
             width="10px"
@@ -91,15 +95,43 @@ function SideBar() {
         </span>
         <span openMenu={openMenu}>
           <img alt="img" width="14px" height="15.56px" src={Circle} />
-          <Text>eCommerce</Text>
+          <Text style={openMenu ? { display: "inline" } : { display: "none" }}>
+            eCommerce
+          </Text>
         </span>
       </FirstSection>
+      <img
+        style={!openMenu ? { display: "inline" } : { display: "none" }}
+        alt="img"
+        width="100%"
+        height="1px"
+        src={Divider}
+      />
       <Apps openMenu={openMenu}>
-        <Text style={{ marginLeft: "10px" }}>APPS</Text>
+        <Text
+          style={
+            openMenu
+              ? { display: "flex", marginLeft: "10px" }
+              : { display: "none", marginLeft: "10px" }
+          }
+        >
+          APPS
+        </Text>
         <ul>
           {appsItens.map((item) => {
             return (
-              <li key={item.name}>
+              <li
+                key={item.name}
+                style={
+                  openMenu
+                    ? null
+                    : {
+                        width: "70%",
+                        height: 40,
+                        margin: "10px",
+                      }
+                }
+              >
                 <div>
                   <img
                     alt="img"
@@ -107,19 +139,54 @@ function SideBar() {
                     height="12.87px"
                     src={item.icon}
                   />
-                  <Text>{item.name}</Text>
+                  <Text
+                    style={
+                      openMenu ? { display: "inline" } : { display: "none" }
+                    }
+                  >
+                    {item.name}
+                  </Text>
                 </div>
               </li>
             );
           })}
         </ul>
       </Apps>
-      <Apps style={{ height: "236px" }} openMenu={openMenu}>
-        <Text style={{ marginLeft: "10px" }}>UI ELEMENTS</Text>
+      <img
+        style={!openMenu ? { display: "inline" } : { display: "none" }}
+        alt="img"
+        width="100%"
+        height="1px"
+        src={Divider}
+      />
+      <Apps
+        style={!openMenu ? { height: "265px" } : { height: "236px" }}
+        openMenu={openMenu}
+      >
+        <Text
+          style={
+            openMenu
+              ? { display: "inline", marginLeft: "10px" }
+              : { display: "none", marginLeft: "10px" }
+          }
+        >
+          UI ELEMENTS
+        </Text>
         <ul>
           {uiElementsItens.map((item) => {
             return (
-              <li key={item.name}>
+              <li
+                key={item.name}
+                style={
+                  openMenu
+                    ? null
+                    : {
+                        width: "70%",
+                        height: 40,
+                        margin: "10px",
+                      }
+                }
+              >
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <div>
                     <img
@@ -129,7 +196,13 @@ function SideBar() {
                       src={item.icon}
                     />
                   </div>
-                  <Text>{item.name}</Text>
+                  <Text
+                    style={
+                      openMenu ? { display: "inline" } : { display: "none" }
+                    }
+                  >
+                    {item.name}
+                  </Text>
                 </div>
                 {item.arrow && (
                   <img
@@ -145,12 +218,38 @@ function SideBar() {
           })}
         </ul>
       </Apps>
+      <img
+        style={!openMenu ? { display: "inline" } : { display: "none" }}
+        alt="img"
+        width="100%"
+        height="1px"
+        src={Divider}
+      />
       <Apps openMenu={openMenu}>
-        <Text style={{ marginLeft: "10px" }}>FORMS</Text>
+        <Text
+          style={
+            openMenu
+              ? { display: "inline", marginLeft: "10px" }
+              : { display: "none", marginLeft: "10px" }
+          }
+        >
+          FORMS
+        </Text>
         <ul>
           {formsItens.map((item) => {
             return (
-              <li key={item.name}>
+              <li
+                key={item.name}
+                style={
+                  openMenu
+                    ? null
+                    : {
+                        width: "70%",
+                        height: 40,
+                        margin: "10px",
+                      }
+                }
+              >
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <div>
                     <img
@@ -160,7 +259,13 @@ function SideBar() {
                       src={item.icon}
                     />
                   </div>
-                  <Text>{item.name}</Text>
+                  <Text
+                    style={
+                      openMenu ? { display: "inline" } : { display: "none" }
+                    }
+                  >
+                    {item.name}
+                  </Text>
                 </div>
                 {item.arrow && (
                   <img

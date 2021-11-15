@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const Container = styled.aside`
   width: ${(props) => (props.openMenu ? "245px" : "90px")};
   height: 100%;
-  /* display: flex; */
   flex-direction: column;
   justify-content: flex-start;
-  /* margin-left: 23px; */
   background-color: #091e42;
 
   z-index: ${(props) => (props.openMenu ? "1000" : "1")};
@@ -29,34 +27,12 @@ export const Container = styled.aside`
     height: 194.48px;
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: 1300px) {
     display: none;
   }
-
-  /* @media (max-width: 960px) {
-    width: ${(props) => (props.openMenu ? "245px" : "50px")};
-    z-index: ${(props) => (props.openMenu ? "1000" : "1")};
-    position: ${(props) => (props.openMenu ? "fixed" : "null")};
-
-    display: ${(props) => (props.openMenu ? "inline" : "none")};
-    position: fixed;
-    z-index: 1000;
-    width: 245px;
-
-    * {
-      transform: ${(props) =>
-    props.openMenu ? "translateX()" : "translateX(-100%)"};
-    }
-  }
-
-  @media (min-width: 960px) {
-    width: 245px;
-    transform: translateX();
-  } */
 `;
 
 export const ImageContainer = styled.div`
-  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   width: ${(props) => (props.openMenu ? "100%" : "90px")};
@@ -71,7 +47,6 @@ export const ImageContainer = styled.div`
 `;
 
 export const FirstSection = styled.section`
-  /* display: ${(props) => (props.openMenu ? "flex" : "none")}; */
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -82,8 +57,6 @@ export const FirstSection = styled.section`
     display: flex;
     width: 100%;
     height: 36px;
-    /* padding: 0px 10px; */
-    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     border-radius: 4px;
