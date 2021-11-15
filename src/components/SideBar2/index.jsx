@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../context/context";
 
-import HamburgerMenu from "../HamburgerMenu";
 
 import LogoGranCursos from "../../assets/icons/LogoGranCursos.svg";
 import Home from "../../assets/icons/Home.svg";

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Context } from "../../context/context";
+import React from "react";
 
 import Calendar from "../../assets/icons/Calendar.svg";
 import CheckSquare from "../../assets/icons/CheckSquare.svg";
@@ -26,7 +25,6 @@ import {
 } from "./styles";
 
 function Header() {
-  const { openMenu, setOpenMenu } = useContext(Context);
 
   return (
     <Container>

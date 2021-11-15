@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
-import { Context } from "../../context/context";
-
+import React from "react";
 import SideBar from "../../components/SideBar";
 import SideBar2 from "../../components/SideBar2";
 import Header from "../../components/Header";
