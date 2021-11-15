@@ -26,7 +26,7 @@ import Divider from "../../assets/icons/Divider.svg";
 import { Apps, Container, FirstSection, ImageContainer, Text } from "./styles";
 
 function SideBar() {
-  const { openMenu, setOpenMenu } = useContext(Context);
+  const { openMenu, setopenMenu } = useContext(Context);
 
   const appsItens = [
     { icon: Mail, name: "Email" },
@@ -61,10 +61,10 @@ function SideBar() {
           style={{ marginRight: 15 }}
         />
         {openMenu ? (
-          <div onClick={() => setOpenMenu(!openMenu)}>'X'</div>
+          <div onClick={() => setopenMenu(!openMenu)}>X</div>
         ) : (
           <img
-            onClick={() => setOpenMenu(!openMenu)}
+            onClick={() => setopenMenu(!openMenu)}
             alt="img"
             width="25px"
             height="25px"

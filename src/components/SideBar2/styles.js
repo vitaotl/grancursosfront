@@ -37,8 +37,19 @@ export const ImageContainer = styled.div`
   justify-content: center;
   width: ${(props) => (props.openMenu ? "100%" : "90px")};
 
-  div {
-    border: 1px solid;
+  img {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  > div {
+    font-size: 20px;
+    margin-left: 40px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   img:nth-child(1) {
@@ -130,7 +141,7 @@ export const Text = styled.span`
 export const Apps = styled.section`
   /* border: 1px solid red; */
   /* display: flex; */
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 88%;
   height: 194.48px;
