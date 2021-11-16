@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../../context/context";
 
 import Path from "../../assets/icons/Path.svg";
 import Grid from "../../assets/icons/Grid.svg";
@@ -34,6 +35,8 @@ import {
 } from "./styles";
 
 function Cards() {
+  const { openFilters, setopenFilters } = useContext(Context);
+
   const [viewStyle, setViewStyle] = useState("List");
   const cards = [
     {
@@ -71,8 +74,9 @@ function Cards() {
       <HeaderCards>
         <Text18>7,618 results found in 5ms</Text18>
         <HeaderCardsIcons>
-          <HeaderCardsDefault>
-            <Text14>Default</Text14>
+          <HeaderCardsDefault onClick={() => setopenFilters(!openFilters)}>
+            <Text14 className="default">Default</Text14>
+            <Text14 className="filters">Filters</Text14>
             <img alt="img" width="10px" height="5px" src={Path} />
           </HeaderCardsDefault>
           <HeaderCardsGrid
@@ -96,12 +100,9 @@ function Cards() {
       <CardsContainer>
         {cards.map((card) => {
           return (
-            <Card key={card.name}>
+            <Card key={card.name} viewStyle={viewStyle}>
               <div>
-                <img
-                  alt="img"
-                  src={DefaultImage}
-                />
+                <img alt="img" src={DefaultImage} />
               </div>
               <CardInfo>
                 <CardName>
@@ -130,7 +131,7 @@ function Cards() {
                     </div>
                   </div>
                 </CardPrice>
-                <CardDescription>
+                <CardDescription viewStyle={viewStyle}>
                   <Text14>{lorem}</Text14>
                 </CardDescription>
                 <Buttons>

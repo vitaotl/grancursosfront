@@ -83,6 +83,19 @@ export const HeaderCardsDefault = styled.section`
   border-radius: 8px;
   box-shadow: 0px 3px 5px #bbbbbb;
 
+  .filters {
+    display: none;
+  }
+
+  @media (max-width: 1150px) {
+    .default {
+      display: none;
+    }
+    .filters {
+      display: flex;
+    }
+  }
+
   &:hover {
     cursor: pointer;
   }
@@ -142,23 +155,25 @@ export const SearchCards = styled.input`
 
 export const CardsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
   height: 1362px;
   margin-top: 28px;
-`;
+  `;
 
 export const Card = styled.div`
   display: flex;
+  width: ${(props) => (props.viewStyle === "List" ? "100%" : "49%")};
+  min-width: 250px;
   align-items: center;
   height: ${(props) => (props.height ? props.height : "250px")};
   transform: scale(0.99);
   transition: all ease 0.2s;
-
+  
   border: none;
   border-radius: 8px;
   box-shadow: 0px 3px 5px #bbbbbb;
-
+  
   > div {
     > img {
       margin: 20px 23px 20px 10px;
@@ -196,11 +211,11 @@ export const CardInfo = styled.div`
   flex-grow: 1;
   flex-wrap: wrap;
   height: 80%;
-  /* border: 1px solid red; */
 
   @media (max-width: 470px) {
     flex-direction: column;
     height: 100%;
+    justify-content: center;
   }
 `;
 
@@ -249,9 +264,9 @@ export const CardName = styled.div`
 `;
 
 export const CardDescription = styled.div`
-  display: flex;
+  display: ${(props) => (props.viewStyle === "List" ? "flex" : "none")};
+
   width: 70%;
-  margin-top: -30px;
 
   span {
     color: #2c2c2c;
@@ -262,7 +277,6 @@ export const CardDescription = styled.div`
       font-size: 12px;
     }
   }
-
   @media (max-width: 680px) {
     display: none;
   }
@@ -307,6 +321,7 @@ export const CardPrice = styled.div`
       > span {
         > span {
           font-size: 12px;
+          flex-grow: 0;
         }
       }
     }
@@ -343,6 +358,7 @@ export const CardPrice = styled.div`
 
   @media (max-width: 470px) {
     margin-top: 0;
+    flex-grow: 0;
   }
 `;
 
@@ -353,6 +369,10 @@ export const Buttons = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+
+  @media (max-width: 470px) {
+    flex-grow: 0;
+  }
 `;
 
 export const WishListButton = styled.div`

@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../../context/context";
+
+import RangeSlider from "../RangeSlider";
 
 import FilledStar from "../../assets/icons/FilledStar.svg";
 import Star from "../../assets/icons/Star.svg";
@@ -15,9 +18,13 @@ import {
   CheckboxButton,
   RatingContainer,
   ClearAllButton,
+  FilterTitle,
+  Text24,
 } from "./styles";
 
 function Filters() {
+  const { openFilters, setopenFilters } = useContext(Context);
+
   const [range, setRange] = useState("All");
   const [categoryItem, setCategoryBrandItem] = useState([]);
 
@@ -82,8 +89,11 @@ function Filters() {
   };
 
   return (
-    <Container>
-      <Text18>Filters</Text18>
+    <Container openFilters={openFilters}>
+      <FilterTitle>
+        <Text18>Filters</Text18>
+        <Text24 onClick={() => setopenFilters(false)}>X</Text24>
+      </FilterTitle>
       <FilterContainer>
         <MultiRange>
           <Text18>Multi Range</Text18>
@@ -98,7 +108,9 @@ function Filters() {
             })}
           </ul>
         </MultiRange>
-        <SliderContainer>SLIDER</SliderContainer>
+        <SliderContainer>
+          <RangeSlider />
+        </SliderContainer>
         <CategoryBrandContainer>
           <Text18>Category</Text18>
           <ul>
@@ -151,7 +163,15 @@ function Filters() {
             <li>
               <div>
                 {fiveStars.map((star, index) => {
-                  return <img key={index} alt="img" width="18px" height="17px" src={star} />;
+                  return (
+                    <img
+                      key={index}
+                      alt="img"
+                      width="18px"
+                      height="17px"
+                      src={star}
+                    />
+                  );
                 })}
               </div>
               <Text16>
@@ -162,7 +182,15 @@ function Filters() {
             <li>
               <div>
                 {fourStars.map((star, index) => {
-                  return <img key={index} alt="img" width="18px" height="17px" src={star} />;
+                  return (
+                    <img
+                      key={index}
+                      alt="img"
+                      width="18px"
+                      height="17px"
+                      src={star}
+                    />
+                  );
                 })}
               </div>
               <Text16>
@@ -173,7 +201,15 @@ function Filters() {
             <li>
               <div>
                 {threeStars.map((star, index) => {
-                  return <img key={index} alt="img" width="18px" height="17px" src={star} />;
+                  return (
+                    <img
+                      key={index}
+                      alt="img"
+                      width="18px"
+                      height="17px"
+                      src={star}
+                    />
+                  );
                 })}
               </div>
               <Text16>

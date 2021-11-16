@@ -1,15 +1,34 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   width: 28%;
   min-width: 260px;
   height: 1574px;
 
-  @media(max-width: 1150px) {
-    display: none;
+  @media (max-width: 1150px) {
+    position: absolute;
+    z-index: 1000;
+    transform: ${(props) =>
+      props.openFilters ? "trasnlateX(1%)" : "translateX(-200%)"};
+    background-color: ${(props) => (props.openFilters ? "#FFF" : null)};
+    box-shadow: ${(props) =>
+      props.openFilters ? "3px 3px 5px #bbbbbb;" : null};
+    transition: all 1s;
+  }
+`;
+
+export const FilterTitle = styled.div`
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+
+  > span:nth-child(2) {
+    @media (min-width: 1150px) {
+      display: none;
+    }
   }
 `;
 
@@ -18,6 +37,17 @@ export const Text18 = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
+`;
+
+export const Text24 = styled.span`
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 21px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Text16 = styled.span`
@@ -42,7 +72,6 @@ export const MultiRange = styled.div`
   flex-direction: column;
   height: 207px;
   margin: 25px 0px 0px 15px;
-  /* border: 1px solid; */
 
   > span {
     font-weight: 600;
@@ -76,10 +105,10 @@ export const RadioButton = styled.button`
 
 export const SliderContainer = styled.div`
   margin: 23.5px 0 0 15px;
+  display: flex;
   width: 90%;
   height: 89px;
   border-top: 1px solid #d6d6d6;
-  /* border: 1px solid; */
 `;
 
 export const CategoryBrandContainer = styled.div`
@@ -87,7 +116,6 @@ export const CategoryBrandContainer = styled.div`
   width: 90%;
   height: 411px;
   border-top: 1px solid #d6d6d6;
-  /* border: 1px solid; */
 
   > ul {
     margin-top: 21px;
