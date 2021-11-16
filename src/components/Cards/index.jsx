@@ -105,13 +105,13 @@ function Cards() {
                 <img alt="img" src={DefaultImage} />
               </div>
               <CardInfo>
-                <CardName>
+                <CardName viewStyle={viewStyle}>
                   <Text16>{card.name}</Text16>
                   <Text12>
                     By <strong>{card.brand}</strong>
                   </Text12>
                 </CardName>
-                <CardPrice stars={card.stars ? true : false}>
+                <CardPrice viewStyle={viewStyle} stars={card.stars ? true : false}>
                   <div>
                     <span>
                       <Text14>{card.stars}</Text14>

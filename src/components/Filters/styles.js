@@ -10,17 +10,14 @@ export const Container = styled.section`
   @media (max-width: 1150px) {
     position: absolute;
     z-index: 1000;
-    transform: ${(props) =>
-      props.openFilters ? "trasnlateX(1%)" : "translateX(-200%)"};
+    transition: all 0.7s;
+    transform: ${(props) => !props.openFilters && "translateX(-200%)"};
     background-color: ${(props) => (props.openFilters ? "#FFF" : null)};
-    box-shadow: ${(props) =>
-      props.openFilters ? "3px 3px 5px #bbbbbb;" : null};
-    transition: all 1s;
+    box-shadow: ${(props) => props.openFilters && "3px 3px 5px #bbbbbb"};
   }
 `;
 
 export const FilterTitle = styled.div`
-  /* border: 1px solid; */
   display: flex;
   justify-content: space-between;
   margin: 10px;

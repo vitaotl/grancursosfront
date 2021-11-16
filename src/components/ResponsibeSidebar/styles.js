@@ -7,10 +7,12 @@ export const Container = styled.aside`
   justify-content: flex-start;
   background-color: #091e42;
 
-  z-index: ${(props) => (props.openMenu ? "1000" : "1")};
-  position: ${(props) => (props.openMenu ? "absolute" : "null")};
   height: 1960px;
-  display: ${(props) => (props.openMenu ? "block" : "null")};
+  z-index: 1000;
+  transform: ${(props) => (props.openFilters && "translateX(-1%)")};
+  transition: all 0.3s;
+  position: absolute;
+  height: 1960px;
 
   > div {
     display: flex;
@@ -83,7 +85,6 @@ export const FirstSection = styled.section`
 
     > div {
       display: flex;
-      /* display: none; */
       align-items: center;
       margin-left: 10px;
       > span {
@@ -139,8 +140,6 @@ export const Text = styled.span`
 `;
 
 export const Apps = styled.section`
-  /* border: 1px solid red; */
-  /* display: flex; */
   display: flex;
   flex-direction: column;
   width: 88%;

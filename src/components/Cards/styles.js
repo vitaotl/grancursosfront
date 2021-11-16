@@ -162,23 +162,23 @@ export const CardsContainer = styled.div`
   `;
 
 export const Card = styled.div`
-  display: flex;
-  width: ${(props) => (props.viewStyle === "List" ? "100%" : "49%")};
-  min-width: 250px;
-  align-items: center;
-  height: ${(props) => (props.height ? props.height : "250px")};
-  transform: scale(0.99);
-  transition: all ease 0.2s;
-  
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0px 3px 5px #bbbbbb;
+display: flex;
+width: ${(props) => (props.viewStyle === "List" ? "100%" : "49%")};
+min-width: 253px;
+align-items: center;
+height: ${(props) => (props.height ? props.height : "250px")};
+transform: scale(0.99);
+transition: all ease 0.2s;
+
+border: none;
+border-radius: 8px;
+box-shadow: 0px 3px 5px #bbbbbb;
   
   > div {
     > img {
       margin: 20px 23px 20px 10px;
-      width: 200px;
-      height: 200px;
+      width: ${props => props.viewStyle === "Grid" ? "80px" : "200px"};
+      height: ${props => props.viewStyle === "Grid" ? "80px" : "200px"};
     }
   }
 
@@ -196,6 +196,10 @@ export const Card = styled.div`
     }
   }
 
+  @media (max-width: 760px) {
+    width: 100%;
+  }
+
   @media (max-width: 570px) {
     > div {
       > img {
@@ -208,9 +212,11 @@ export const Card = styled.div`
 
 export const CardInfo = styled.div`
   display: flex;
+  flex-direction: ${props => props.viewStyle === "Grid" ? "column" : "row"};
   flex-grow: 1;
   flex-wrap: wrap;
-  height: 80%;
+  height: ${props => props.viewStyle === "Grid" ? "100%" : "80%"};
+  justify-content: ${props => props.viewStyle === "Grid" && "center"};
 
   @media (max-width: 470px) {
     flex-direction: column;
@@ -222,13 +228,9 @@ export const CardInfo = styled.div`
 export const CardName = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: ${props => props.viewStyle === "Grid" ? "100%" : "70%"};
   height: fit-content;
-  margin-top: 19px;
-
-  span {
-    margin-top: 7px;
-  }
+  margin-top: ${props => props.viewStyle === "Grid" ? "0px" : "19px"};
 
   @media (max-width: 850px) {
     span {
@@ -261,6 +263,11 @@ export const CardName = styled.div`
       font-size: 12px;
     }
   }
+
+  span {
+    margin-top: 7px;
+    font-size: ${props => props.viewStyle === "Grid" && "12px"};
+  }
 `;
 
 export const CardDescription = styled.div`
@@ -286,7 +293,7 @@ export const CardDescription = styled.div`
 `;
 
 export const CardPrice = styled.div`
-  display: flex;
+  display: ${(props) => props.viewStyle === "Grid" && "none"};
   flex-direction: column;
   flex-grow: 1;
   height: 72px;
@@ -363,7 +370,6 @@ export const CardPrice = styled.div`
 `;
 
 export const Buttons = styled.div`
-  /* border: 1px solid; */
   display: flex;
   flex-direction: column;
   justify-content: center;

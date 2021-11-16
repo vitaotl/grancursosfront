@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../context/context";
+
 import SideBar from "../../components/SideBar";
-import SideBar2 from "../../components/SideBar2";
+import ResponsiveSidebar from  '../../components/ResponsibeSidebar'
 import Header from "../../components/Header";
 import Filters from "../../components/Filters";
 import Cards from "../../components/Cards";
@@ -9,16 +11,23 @@ import Footer from "../../components/Footer";
 import { Container, MainBody, MainContainer } from "./styles";
 
 function Main() {
+  const { openMenu, setOpenMenu, openFilters, setopenFilters } =
+    useContext(Context);
+
+  const handleClick = () => {
+    openMenu && setOpenMenu(false);
+    openFilters && setopenFilters(false);
+  };
 
   return (
     <Container>
       <SideBar />
-      <SideBar2 />
-      <MainBody>
+      <ResponsiveSidebar />
+      <MainBody onClick={handleClick}>
         <Header />
         <MainContainer>
           <Filters />
-          <Cards />
+          <Cards onClick={handleClick} />
         </MainContainer>
         <Footer />
       </MainBody>

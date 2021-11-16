@@ -4,7 +4,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  /* flex-direction: column; */
 `;
 
 export const MainBody = styled.div`
@@ -14,13 +13,16 @@ export const MainBody = styled.div`
   width: 100%;
   margin: 25px 25px;
 
+  @media (max-width: 1300px) {
+    margin-left: 110px;
+  }
+
   @media (max-width: 500px) {
-    margin-left: 10px;
+    margin-left: 95px;
   }
 `;
 
 export const MainContainer = styled.div`
-  /* border: 1px solid; */
   display: flex;
   width: 100%;
   height: 1574px;
